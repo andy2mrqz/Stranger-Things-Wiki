@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<StrangerThings.Models.Character>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Characters";
 }
 
 <h2>Index</h2>
@@ -9,7 +9,61 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+@*Add a bootstrap row for each character*@
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4">
+            @*Display the character image*@
+            <img class="img-responsive img-rounded" src="@Html.DisplayFor(modelItem => item.PhotoLocation)" />
+        </div>
+        <div class="col-md-4">
+            @*Show the first name and last name for the character*@
+            <h2>@Html.DisplayFor(modelItem => item.CharacterFirstName) @Html.DisplayFor(modelItem => item.CharacterLastName)</h2>
+
+            @*Show the character description*@
+            <p>@Html.DisplayFor(modelItem => item.CharacterDescription)</p>
+
+            @*Display character attributes*@
+            <p>
+                <b>Year of Birth:</b>
+                @Html.DisplayFor(modelItem => item.YearOfBirth)
+            </p>
+
+            <p>
+                <b>Gender:</b>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </p>
+
+            <p>
+                <b>Hometown:</b>
+                @Html.DisplayFor(modelItem => item.Hometown)
+            </p>
+
+            <p>
+                <b>Occupation:</b>
+                @Html.DisplayFor(modelItem => item.Occupation)
+            </p>
+
+            <p>
+                <b>Actor:</b>
+                @Html.DisplayFor(modelItem => item.Actor)
+            </p>
+
+            <p>
+                <b>Quote:</b>
+                @Html.DisplayFor(modelItem => item.Quote)
+            </p>
+
+            @*Display options to view details, edit, or delete*@
+            @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })
+        </div>
+    </div>
+}
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CharacterFirstName)
@@ -82,6 +136,6 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.CharacterID })
         </td>
     </tr>
-}
+}*@
 
 </table>
