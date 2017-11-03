@@ -1,98 +1,37 @@
-﻿@model StrangerThings.Models.Character
+﻿@model StrangerThings.Models.Character  
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.CharacterFirstName + ' ' + Model.CharacterLastName;
 }
 
-<h2>Details</h2>
+<div class="row">
+    <div class="col-md-4">
+        @*Display the character image*@
+        <img class="img-responsive img-rounded" src="@Model.PhotoLocation" />
+    </div>
+    <div class="col-md-8">
+        @*Show the first name and last name for the character*@
+        <h2>@Model.CharacterFirstName @Model.CharacterLastName</h2>
 
-<div>
-    <h4>Character</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CharacterFirstName)
-        </dt>
+        @*Show the character description*@
+        <p>@Model.CharacterDescription</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.CharacterFirstName)
-        </dd>
+        @*Display character attributes*@
+        <p><b>Year of Birth:</b> @Model.YearOfBirth</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CharacterLastName)
-        </dt>
+        <p><b>Gender:</b> @Model.Gender</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.CharacterLastName)
-        </dd>
+        <p><b>Hometown:</b> @Model.Hometown</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CharacterDescription)
-        </dt>
+        <p><b>Occupation:</b> @Model.Occupation</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.CharacterDescription)
-        </dd>
+        <p><b>Actor:</b> @Model.Actor</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hometown)
-        </dt>
+        <p><b>Quote:</b> @Model.Quote</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Hometown)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YearOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YearOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhotoLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhotoLocation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Actor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Actor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Occupation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Occupation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quote)
-        </dd>
-
-    </dl>
+        @*Display options to edit, delete, or go back to character list*@
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.CharacterID }) |
+        @Html.ActionLink("Back to Characters", "Index")
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

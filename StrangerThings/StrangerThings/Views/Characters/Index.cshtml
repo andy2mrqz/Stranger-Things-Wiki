@@ -1,87 +1,42 @@
 ﻿@model IEnumerable<StrangerThings.Models.Character>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Characters";
 }
 
-<h2>Index</h2>
+<h2>Characters</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterLastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hometown)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhotoLocation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Actor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Occupation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quote)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hometown)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhotoLocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Actor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quote)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CharacterID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CharacterID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CharacterID })
-        </td>
-    </tr>
+@{
+    var list = Model.ToList();
 }
 
-</table>
+@for (int i = 0; i < list.Count; i++)
+{
+    if (i % 4 == 0)
+    {
+        @:<div class="row">
+    }
+
+    <div class="col-md-3">
+        <a href="@Url.Action("Details", "Characters", new { id = list[i].CharacterID })">
+
+            @*Show the first name and last name for the character*@
+            <h3>@Html.DisplayFor(modelItem => list[i].CharacterFirstName) @Html.DisplayFor(modelItem => list[i].CharacterLastName)</h3>
+
+            @*Display the character image*@
+            <img class="img-responsive img-thumbnail" src="@Html.DisplayFor(modelItem => list[i].PhotoLocation)" />
+        </a>
+    </div>
+
+    if ((i + 1) % 4 == 0 || (i + 1) == list.Count)
+    {
+        @:</div>
+    }
+}
+
+
+
