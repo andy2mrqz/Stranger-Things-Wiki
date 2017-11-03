@@ -85,7 +85,7 @@ namespace StrangerThings.Controllers
             {
                 db.Entry(character).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = character.CharacterID });
             }
             return View(character);
         }

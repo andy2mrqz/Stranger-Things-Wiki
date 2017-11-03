@@ -1,4 +1,4 @@
-﻿@model StrangerThings.Models.Character
+﻿@model StrangerThings.Models.Character  
 
 @{
     ViewBag.Title = Model.CharacterFirstName + ' ' + Model.CharacterLastName;
@@ -7,50 +7,31 @@
 <div class="row">
     <div class="col-md-4">
         @*Display the character image*@
-        <img class="img-responsive img-rounded" src="@Model.PhotoLocation)" />
+        <img class="img-responsive img-rounded" src="@Model.PhotoLocation" />
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
         @*Show the first name and last name for the character*@
-        <h2>@Html.DisplayNameFor(model => model.CharacterFirstName) @Html.DisplayNameFor(model => model.CharacterLastName)</h2>
+        <h2>@Model.CharacterFirstName @Model.CharacterLastName</h2>
 
         @*Show the character description*@
-        <p>@Html.DisplayNameFor(model => model.CharacterDescription)</p>
+        <p>@Model.CharacterDescription</p>
 
         @*Display character attributes*@
-        <p>
-            <b>Year of Birth:</b>
-            @Html.DisplayNameFor(model => model.YearOfBirth)
-        </p>
+        <p><b>Year of Birth:</b> @Model.YearOfBirth</p>
 
-        <p>
-            <b>Gender:</b>
-            @Html.DisplayNameFor(model => model.Gender)
-        </p>
+        <p><b>Gender:</b> @Model.Gender</p>
 
-        <p>
-            <b>Hometown:</b>
-            @Html.DisplayNameFor(model => model.Hometown)
-        </p>
+        <p><b>Hometown:</b> @Model.Hometown</p>
 
-        <p>
-            <b>Occupation:</b>
-            @Html.DisplayNameFor(model => model.Occupation)
-        </p>
+        <p><b>Occupation:</b> @Model.Occupation</p>
 
-        <p>
-            <b>Actor:</b>
-            @Html.DisplayNameFor(model => model.Actor)
-        </p>
+        <p><b>Actor:</b> @Model.Actor</p>
 
-        <p>
-            <b>Quote:</b>
-            @Html.DisplayNameFor(model => model.Quote)
-        </p>
+        <p><b>Quote:</b> @Model.Quote</p>
 
         @*Display options to edit, delete, or go back to character list*@
         @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.CharacterID })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.CharacterID }) |
         @Html.ActionLink("Back to Characters", "Index")
     </div>
 </div>
-
