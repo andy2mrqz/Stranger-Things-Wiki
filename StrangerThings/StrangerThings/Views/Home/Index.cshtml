@@ -14,7 +14,8 @@
         <p>
             Click on this button to see a list of characters you can view stats and FAQs for!
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        @*Button goes to the Index view of the Characters Controller*@
+        <p class="btn btn-default">@Html.ActionLink("Characters","Index","Characters")</p>
     </div>
     <div class="col-md-6">
         <h2>Get more libraries</h2>
