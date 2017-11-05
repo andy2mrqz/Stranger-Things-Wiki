@@ -58,11 +58,11 @@ namespace StrangerThings
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "646818567376-rg2hq2mn01hc9ubcj8rfbj34hvkkpvh6.apps.googleusercontent.com",
+                ClientSecret = "4zzaB0LcjcEddumtQcdc2l1v"
+            });
         }
     }
 }
