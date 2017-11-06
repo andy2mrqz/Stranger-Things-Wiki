@@ -5,7 +5,7 @@
 
 Create an MVC website and database that will allow Stranger Things enthusiasts to ask questions of other fans.  The site must also implement 3rd party authentication, through Google for example.
 
-On the landing page, implement a bootstrap jumbotron class to create a “call to action” which for now will not have any functionality.
+On the landing page, implement a bootstrap jumbotron class to create a “call to action” which for now will not have any functionality (this was never mentioned in the Part 2 section, so we might need to do some digging for this part).
 The home page, should also display any content that relates to Stranger Things (i.e. quotes, videos, etc.)
 
 #### Views
