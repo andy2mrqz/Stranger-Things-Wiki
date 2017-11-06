@@ -10,6 +10,8 @@
 <h2>Characters</h2>
 
 <!--Dropdown menu allows user to select a character without scrolling through the whole page-->
+
+
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
         Select Character
@@ -24,9 +26,8 @@
     </ul>
 </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Html.ActionLink("Create New", "Create")
+
 
 <!--For each character, display the character name and image.  For loop used instead of for each loop so I can add a new row every four characters-->
 @for (int i = 0; i < list.Count; i++)

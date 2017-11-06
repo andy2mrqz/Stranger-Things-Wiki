@@ -4,6 +4,13 @@
     ViewBag.Title = Model.CharacterFirstName + ' ' + Model.CharacterLastName;
 }
 
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters")</li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
+
 <div class="row">
     <div class="col-md-4">
         @*Display the character image*@

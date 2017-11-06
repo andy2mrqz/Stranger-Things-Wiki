@@ -5,21 +5,15 @@
 <div class="jumbotron">
     <h1>Stranger Things</h1>
     <p><img src="https://static.lootcrate.com/yrk2x9n6p9s5/56Yx9gPZ9mW0oSmcsmSM4u/6b82ff860b8bdf79b13fc45dbe914002/gallery_01.jpg"/></p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Stranger Things is Cool &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Characters</h2>
+            <p>
+                Click on this button to see a list of characters you can view stats and FAQs for!
+            </p>
+            @*Button goes to the Index view of the Characters Controller*@
+            <p class="btn btn-default">@Html.ActionLink("Characters", "Index", "Characters")</p>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <h2>Characters</h2>
-        <p>
-            Click on this button to see a list of characters you can view stats and FAQs for!
-        </p>
-        @*Button goes to the Index view of the Characters Controller*@
-        <p class="btn btn-default">@Html.ActionLink("Characters","Index","Characters")</p>
-    </div>
-    <div class="col-md-6">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-</div>
