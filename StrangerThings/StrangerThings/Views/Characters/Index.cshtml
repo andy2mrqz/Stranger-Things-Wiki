@@ -7,27 +7,29 @@
     var list = Model.ToList();
 }
 
-<h2>Characters</h2>
+<h2 class="graytext">Characters</h2>
 
 <!--Dropdown menu allows user to select a character without scrolling through the whole page-->
 
+<div class="row">
+    <div class="dropdown col-md-9">
+        <button class="btn btn-red dropdown-toggle" type="button" data-toggle="dropdown">
+            Select Character
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <!--Add a list item for each character in the model.  Link goes to character detail view-->
+            @foreach (var item in list)
+            {
+                <li><a href="@Url.Action("Details", new { id = item.CharacterID })">@item.CharacterFirstName @item.CharacterLastName</a></li>
+            }
+        </ul>
+    </div>
 
-<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Select Character
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-        <!--Add a list item for each character in the model.  Link goes to character detail view-->
-        @foreach (var item in list)
-        {
-            <li><a href="@Url.Action("Details", new { id = item.CharacterID })">@item.CharacterFirstName @item.CharacterLastName</a></li>
-        }
-    </ul>
+    <div class="col-md-3">
+        <p class="pull-right">@Html.ActionLink("Create New", "Create", "Characters", null, new { @class = "btn btn-red" })</p>
+    </div>
 </div>
-
-@Html.ActionLink("Create New", "Create")
-
 
 <!--For each character, display the character name and image.  For loop used instead of for each loop so I can add a new row every four characters-->
 @for (int i = 0; i < list.Count; i++)
@@ -43,7 +45,7 @@
         <a href="@Url.Action("Details", "Characters", new { id = list[i].CharacterID })">
 
             <!--Show the first name and last name for the character-->
-            <h3>@Html.DisplayFor(modelItem => list[i].CharacterFirstName) @Html.DisplayFor(modelItem => list[i].CharacterLastName)</h3>
+            <h3 class="graytext">@Html.DisplayFor(modelItem => list[i].CharacterFirstName) @Html.DisplayFor(modelItem => list[i].CharacterLastName)</h3>
 
             <!--Display the character image-->
             <img class="img-responsive img-thumbnail" src="@Html.DisplayFor(modelItem => list[i].PhotoLocation)" />
