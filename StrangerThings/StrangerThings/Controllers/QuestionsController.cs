@@ -16,9 +16,23 @@ namespace StrangerThings.Controllers
         private StrangerThingsContext db = new StrangerThingsContext();
 
         // GET: Questions
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var questions = db.Questions.Include(q => q.Character);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var questions = new List<Question>();
+
+            foreach(var q in db.Questions)
+            {
+                if(q.CharacterID == id)
+                {
+                    questions.Add(q);
+                }
+            }
+
             return View(questions.ToList());
         }
 
