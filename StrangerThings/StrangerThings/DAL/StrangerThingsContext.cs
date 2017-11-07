@@ -16,5 +16,6 @@ namespace StrangerThings.DAL
 
         //Create the DbSets for the different models
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Question> Questions { get; set; }
     }
 }
