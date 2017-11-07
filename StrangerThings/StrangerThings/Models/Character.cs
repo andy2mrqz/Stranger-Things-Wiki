@@ -26,5 +26,8 @@ namespace StrangerThings.Models
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public string Quote { get; set; }
+
+        //Collection of Questions (foreign key relationship)
+        public ICollection<Question> Questions { get; set; }
     }
 }
