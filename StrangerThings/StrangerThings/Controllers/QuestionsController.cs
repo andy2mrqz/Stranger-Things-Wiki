@@ -16,15 +16,19 @@ namespace StrangerThings.Controllers
         private StrangerThingsContext db = new StrangerThingsContext();
 
         // GET: Questions
+        //Passing in an id so the index will only show question related with the character.
         public ActionResult Index(int? id)
         {
+            //If no ID is passed, a bad request page is shown
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            //Create a new list of questions to pass into the index view 
             var questions = new List<Question>();
 
+            //Go through all the questions in the database and only add questions related to the character
             foreach(var q in db.Questions)
             {
                 if(q.CharacterID == id)
