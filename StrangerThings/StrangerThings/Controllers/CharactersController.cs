@@ -33,7 +33,42 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
+
+            var Questions = new List<Question>();
+
+            foreach (var q in db.Questions)
+            {
+                if (q.CharacterID == id)
+                {
+                    Questions.Add(q);
+                }
+            }
+
+            ViewBag.Questions = Questions;
+
             return View(character);
+        }
+
+        public ActionResult ViewQuestions(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var Questions = new List<Question>();
+
+            foreach(var q in db.Questions)
+            {
+                if(q.CharacterID == id)
+                {
+                   Questions.Add(q);
+                }
+            }
+
+            ViewBag.Questions = Questions;
+
+            return RedirectToAction("Details", new { id = id});
         }
 
         // GET: Characters/Create
