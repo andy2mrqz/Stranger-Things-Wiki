@@ -29,6 +29,21 @@
 
         <p><b>Quote:</b> @Model.Quote</p>
 
+        @{
+            try
+            {
+                foreach (var item in Model.Questions)
+                {
+                    <p><b>Question: </b> @item.QuestionDescription</p>
+                    <p><b>Answer: </b> @item.Answer</p>
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         @*Display options to edit, delete, or go back to character list*@
         @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.CharacterID }) |
