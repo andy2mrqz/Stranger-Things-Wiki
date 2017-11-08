@@ -6,6 +6,7 @@
 
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb layout">
+        <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "redtext" })</li>
         <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters", null, new { @class="redtext" })</li>
         <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
     </ol>
@@ -43,7 +44,7 @@
         @Html.ActionLink("Back to Characters", "Index", "Characters", null, new { @class = "redtext" })
 
         <!--Navigates to the Index method in the Questions controller.  Passes in the character id of the current character-->
-        <h3>@Html.ActionLink("FAQ's about " + @Model.CharacterFirstName + " " + @Model.CharacterLastName, "Index", "Questions", new { id = Model.CharacterID }, new { @class = "" })</h3>
+        <h3>@Html.ActionLink("FAQ's about " + @Model.CharacterFirstName + " " + @Model.CharacterLastName, "Index", "Questions", new { id = Model.CharacterID }, new { @class = "red-text" })</h3>
 
     </div>
 </div>
