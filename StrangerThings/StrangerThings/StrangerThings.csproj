@@ -231,6 +231,7 @@
     <Content Include="Content\img\murraybauman.png" />
     <Content Include="Content\img\nancywheeler.jpg" />
     <Content Include="Content\img\steveharrington.png" />
+    <Content Include="Content\img\strangerthingsgif.gif" />
     <Content Include="Content\img\willbyers.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
