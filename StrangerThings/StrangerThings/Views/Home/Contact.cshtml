@@ -4,6 +4,38 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+<style>
+    body {
+            background-color: black;
+            -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+            animation-name: example;
+            animation-duration: .15s;
+            animation-iteration-count: 3;
+            animation-delay: 2s;
+        }
+
+        @@-webkit-keyframes example {
+            0%   {background-color: white;}
+            25%  {background-color: yellow;}
+            50%  {background-color: blue;}
+            100% {background-color: green;}
+        }
+
+        @@keyframes example {
+            0%   {background-color: white;}
+            25%  {background-color: cyan;}
+            50%  {background-color: black;}
+            100% {background-color: grey;}
+        }
+
+.textinp{
+        width: 100%;
+        margin: 8px 0;
+        box-sizing: border-box;
+        }
+</style>
+
 <address>
     N. Eldon Tanner Building<br />
     Campus Dr<br />
@@ -16,3 +48,36 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<div>
+    <div>
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            @Html.Label("Name")
+            <br />
+            @Html.TextBox("Name", null, new {@class="textinp"})
+            <br />
+
+            @Html.Label("Email Address")
+            <br />
+            @Html.TextBox("Email Address", null, new {@class = "textinp"})
+            <br /> 
+
+            @Html.Label("Topic")
+            <br />
+            @Html.DropDownList("Comment")
+            <br />
+            
+            <br />
+            @Html.Label("Leave a comment here")
+            <br />
+            @Html.TextArea("Leave a Comment",null, new { @class = "textinp" })
+            <br />
+
+            <input type="submit" value="Submit" />            
+            
+        }
+
+    </div>
+
+</div>

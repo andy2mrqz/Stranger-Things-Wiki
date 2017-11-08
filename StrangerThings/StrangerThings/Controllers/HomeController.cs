@@ -23,6 +23,15 @@ namespace StrangerThings.Controllers
 
         public ActionResult Contact()
         {
+                       
+           
+            List<SelectListItem> CommentTopic = new List<SelectListItem>();
+            CommentTopic.Add(new SelectListItem { Text = "Help", Value = "0" });
+            CommentTopic.Add(new SelectListItem { Text = "Troubleshoot", Value = "1" });
+            CommentTopic.Add(new SelectListItem { Text = "Questions", Value = "2", Selected = true });
+            ViewBag.Comment = CommentTopic;            
+            
+
             ViewBag.Message = "Your contact page.";
 
             return View();
