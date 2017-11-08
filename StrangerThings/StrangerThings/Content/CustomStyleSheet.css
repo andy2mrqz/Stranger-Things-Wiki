@@ -49,6 +49,11 @@ a.navbar-brand {
     margin-top: -7px;
 }
 
+ol.breadcrumb.layout {
+    margin: 0;
+    padding: 15px;
+}
+
 .btn-red {
     color: #FFFFFF;
     background-color: #E00000;
