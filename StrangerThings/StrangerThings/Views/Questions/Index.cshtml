@@ -30,14 +30,17 @@
         {
             <p><b>Question:</b> @item.QuestionDescription</p>
             <p><b>Answer:</b> @item.Answer</p>
-            <p>@Html.ActionLink("Delete Question", "Delete", "Questions", new { id = item.QuestionID }, new { @class = "redtext" })</p>
+            <p>
+                @Html.ActionLink("Delete Question", "Delete", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) | 
+                @Html.ActionLink("Edit Answer", "EditAnswer", "Questions", new { id = item.QuestionID }, new { @class = "redtext" })
+            </p>
         }
 
 
         @*Display options to edit, delete, or go back to character list*@
 
         <!--Navigates to the Details method in the Characters controller.  Passes in the character id of the current character-->
-        <h3>@Html.ActionLink("Return to Character Facts", "Details", "Characters", new { id = ViewBag.Character.CharacterID }, new { @class = "" })</h3>
+        <h3>@Html.ActionLink("Return to Character Bio", "Details", "Characters", new { id = ViewBag.Character.CharacterID }, new { @class = "btn btn-red" })</h3>
 
     </div>
 </div>

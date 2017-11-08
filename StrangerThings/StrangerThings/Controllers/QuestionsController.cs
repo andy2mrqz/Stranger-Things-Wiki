@@ -106,6 +106,22 @@ namespace StrangerThings.Controllers
             return View(question);
         }
 
+        // GET: Questions/EditAnswer/5
+        public ActionResult EditAnswer(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Question question = db.Questions.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
+            return View(question);
+        }
+
         // POST: Questions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -121,6 +137,20 @@ namespace StrangerThings.Controllers
             }
             ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
             return View(question);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAnswer(int id, string answer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Questions.Find(id).Answer = answer;
+                db.SaveChanges();
+                return RedirectToAction("Index", new { id = db.Questions.Find(id).CharacterID });
+            }
+
+            return View(db.Questions.Find(id));
         }
 
         // GET: Questions/Delete/5
