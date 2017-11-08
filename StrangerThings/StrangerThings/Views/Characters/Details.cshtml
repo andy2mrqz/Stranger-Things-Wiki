@@ -5,8 +5,8 @@
 }
 
 <nav aria-label="breadcrumb" role="navigation">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters")</li>
+    <ol class="breadcrumb layout">
+        <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters", null, new { @class="redtext" })</li>
         <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
     </ol>
 </nav>
@@ -38,11 +38,12 @@
 
 
         @*Display options to edit, delete, or go back to character list*@
-        @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.CharacterID }) |
-        @Html.ActionLink("Back to Characters", "Index")
+        @Html.ActionLink("Edit", "Edit", "Characters", new { id = Model.CharacterID }, new { @class = "redtext" }) |
+        @Html.ActionLink("Delete", "Delete", "Characters", new { id = Model.CharacterID }, new { @class = "redtext" }) |
+        @Html.ActionLink("Back to Characters", "Index", "Characters", null, new { @class = "redtext" })
 
         <!--Navigates to the Index method in the Questions controller.  Passes in the character id of the current character-->
         <h3>@Html.ActionLink("FAQ's about " + @Model.CharacterFirstName + " " + @Model.CharacterLastName, "Index", "Questions", new { id = Model.CharacterID }, new { @class = "" })</h3>
+
     </div>
 </div>

@@ -2,18 +2,18 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Stranger Things</h1>
-    <p><img src="https://static.lootcrate.com/yrk2x9n6p9s5/56Yx9gPZ9mW0oSmcsmSM4u/6b82ff860b8bdf79b13fc45dbe914002/gallery_01.jpg"/></p>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Characters</h2>
-            <p>
-                Click on this button to see a list of characters you can view stats and FAQs for!
-            </p>
-            @*Button goes to the Index view of the Characters Controller*@
-            <p class="btn btn-default">@Html.ActionLink("Characters", "Index", "Characters")</p>
+<div class="jumbotron layout">
+    <center>
+        <p><img src="~/Content/img/strangerthingsgif.gif" /></p>
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Click on this button to see a list of characters you can view stats and FAQs for!
+                </p>
+                @*Button goes to the Index view of the Characters Controller*@
+                @Html.ActionLink("Characters", "Index", "Characters", null, new { @class = "btn btn-red btn-lg" })
+            </div>
         </div>
-    </div>
+    </center>
 </div>
 

@@ -3,3 +3,94 @@
     height: 250px;
     object-fit: cover;
 }
+
+.layout {
+    background-color: black;
+    color: white;
+}
+
+.graytext {
+    color: darkgray;
+    text-decoration: none;
+    text-decoration-color: none;
+}
+
+.graytext:hover {
+    color: darkgray;
+    text-decoration: none;
+}
+
+.graytext:active {
+    color: darkgray;
+}
+
+.graytext:link {
+    color: darkgray;
+}
+
+.graytext:visited {
+    color: darkgray;
+}
+
+.redtext {
+     color:#EB272E;
+     text-decoration: none;
+}
+
+.redtext:active {
+     color: #EB272E;
+}
+
+.redtext:link {
+     color: #EB272E;
+}
+
+a.navbar-brand {
+    margin-top: -7px;
+}
+
+.btn-red {
+    color: #FFFFFF;
+    background-color: #E00000;
+    border-color: #000000;
+}
+
+    .btn-red:hover,
+    .btn-red:focus,
+    .btn-red:active,
+    .btn-red.active,
+    .open .dropdown-toggle.btn-red {
+        color: #FFFFFF;
+        background-color: #A60000;
+        border-color: #000000;
+    }
+
+    .btn-red:active,
+    .btn-red.active,
+    .open .dropdown-toggle.btn-red {
+        background-image: none;
+    }
+
+    .btn-red.disabled,
+    .btn-red[disabled],
+    fieldset[disabled] .btn-red,
+    .btn-red.disabled:hover,
+    .btn-red[disabled]:hover,
+    fieldset[disabled] .btn-red:hover,
+    .btn-red.disabled:focus,
+    .btn-red[disabled]:focus,
+    fieldset[disabled] .btn-red:focus,
+    .btn-red.disabled:active,
+    .btn-red[disabled]:active,
+    fieldset[disabled] .btn-red:active,
+    .btn-red.disabled.active,
+    .btn-red[disabled].active,
+    fieldset[disabled] .btn-red.active {
+        background-color: #E00000;
+        border-color: #000000;
+    }
+
+    .btn-red .badge {
+        color: #E00000;
+        background-color: #FFFFFF;
+    }
