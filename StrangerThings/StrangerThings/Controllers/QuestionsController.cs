@@ -37,8 +37,9 @@ namespace StrangerThings.Controllers
                 }
             }
 
-            //Add the character id to the viewbag
-            ViewBag.CharacterID = id;
+            //Add the character to the viewbag and the character full name to the viewbag
+            ViewBag.Character = db.Characters.Find(id);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
 
             return View(questions.ToList());
         }
