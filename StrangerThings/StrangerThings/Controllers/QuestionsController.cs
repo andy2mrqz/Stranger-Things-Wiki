@@ -37,6 +37,9 @@ namespace StrangerThings.Controllers
                 }
             }
 
+            //Add the character id to the viewbag
+            ViewBag.CharacterID = id;
+
             return View(questions.ToList());
         }
 
@@ -56,9 +59,15 @@ namespace StrangerThings.Controllers
         }
 
         // GET: Questions/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName");
+            //If no ID is passed, a bad request page is shown
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.CharacterID = id;
             return View();
         }
 
@@ -73,7 +82,7 @@ namespace StrangerThings.Controllers
             {
                 db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = question.CharacterID });
             }
 
             ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
@@ -136,7 +145,7 @@ namespace StrangerThings.Controllers
             Question question = db.Questions.Find(id);
             db.Questions.Remove(question);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = question.CharacterID });
         }
 
         protected override void Dispose(bool disposing)
