@@ -33,6 +33,21 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
+
+            //Creates a list of questions to be passed to the viewbag so the character page can show questions associated with the character
+            var Questions = new List<Question>();
+
+            //If the question is related to the character, add to the list
+            foreach (var q in db.Questions)
+            {
+                if (q.CharacterID == id)
+                {
+                    Questions.Add(q);
+                }
+            }
+
+            ViewBag.Questions = Questions;
+
             return View(character);
         }
 

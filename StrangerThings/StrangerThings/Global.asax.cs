@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StrangerThings.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,8 @@ namespace StrangerThings
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<StrangerThingsContext>(null);
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
