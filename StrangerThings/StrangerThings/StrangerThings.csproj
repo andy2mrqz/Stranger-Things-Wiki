@@ -20,9 +20,12 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44373</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -224,7 +227,9 @@
     <Content Include="Content\img\jonathan.jpg" />
     <Content Include="Content\img\karen.png" />
     <Content Include="Content\img\lucas.png" />
+    <Content Include="Content\img\mikewheeler.jpg" />
     <Content Include="Content\img\murraybauman.png" />
+    <Content Include="Content\img\nancywheeler.jpg" />
     <Content Include="Content\img\steveharrington.png" />
     <Content Include="Content\img\willbyers.png" />
     <Content Include="favicon.ico" />
