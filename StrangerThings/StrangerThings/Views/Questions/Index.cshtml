@@ -1,51 +1,46 @@
 ﻿@model IEnumerable<StrangerThings.Models.Question>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.CharacterFullName + " FAQ";
 }
 
-<h2>Index</h2>
+<!--Breadcrumb-->
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb layout">
+        <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters", null, new { @class = "redtext" })</li>
+        <li class="breadcrumb-item">@Html.ActionLink((string)ViewBag.CharacterFullName, "Details", "Characters", new { id = ViewBag.Character.CharacterID }, new { @class = "redtext" })</li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+    </ol>
+</nav>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Character.CharacterFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuestionDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Answer)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character.CharacterFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuestionDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Answer)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.QuestionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionID })
-        </td>
-    </tr>
-}
+<div class="row">
+    <div class="col-md-4">
+        @*Display the character image*@
+        <img class="img-responsive img-rounded" src="@ViewBag.Character.PhotoLocation" />
+    </div>
+    <div class="col-md-8">
+        
+        <div class="row">
+            <div class="col-xs-6"><h2>@ViewBag.Character.CharacterFirstName @ViewBag.Character.CharacterLastName</h2></div>
+            <div class="col-xs-6"><p class="pull-right">@Html.ActionLink("Ask a Question", "Create", "Questions", new { id = ViewBag.Character.CharacterID }, new { @class = "btn btn-red" })</p></div>
+        </div>
+        
+        @foreach (var item in Model)
+        {
+            <p><b>Question:</b> @item.QuestionDescription</p>
+            <p><b>Answer:</b> @item.Answer</p>
+            <p>
+                @Html.ActionLink("Delete Question", "Delete", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) | 
+                @Html.ActionLink("Edit Answer", "EditAnswer", "Questions", new { id = item.QuestionID }, new { @class = "redtext" })
+            </p>
+        }
 
-</table>
+
+        @*Display options to edit, delete, or go back to character list*@
+
+        <!--Navigates to the Details method in the Characters controller.  Passes in the character id of the current character-->
+        <h3>@Html.ActionLink("Return to Character Bio", "Details", "Characters", new { id = ViewBag.Character.CharacterID }, new { @class = "btn btn-red" })</h3>
+
+    </div>
+</div>

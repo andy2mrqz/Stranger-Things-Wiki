@@ -44,7 +44,6 @@
         @Html.ActionLink("Back to Characters", "Index", "Characters", null, new { @class = "redtext" })
 
         <!--Navigates to the Index method in the Questions controller.  Passes in the character id of the current character-->
-        <h3>@Html.ActionLink("FAQ's about " + @Model.CharacterFirstName + " " + @Model.CharacterLastName, "Index", "Questions", new { id = Model.CharacterID }, new { @class = "red-text" })</h3>
-
+        <h3>@Html.ActionLink(@Model.CharacterFirstName + " " + @Model.CharacterLastName + " FAQs", "Index", "Questions", new { id = Model.CharacterID }, new { @class = "btn btn-red" })</h3>
     </div>
 </div>

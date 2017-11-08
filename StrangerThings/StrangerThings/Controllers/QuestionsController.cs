@@ -37,6 +37,10 @@ namespace StrangerThings.Controllers
                 }
             }
 
+            //Add the character to the viewbag and the character full name to the viewbag
+            ViewBag.Character = db.Characters.Find(id);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
+
             return View(questions.ToList());
         }
 
@@ -56,9 +60,15 @@ namespace StrangerThings.Controllers
         }
 
         // GET: Questions/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName");
+            //If no ID is passed, a bad request page is shown
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.CharacterID = id;
             return View();
         }
 
@@ -73,7 +83,7 @@ namespace StrangerThings.Controllers
             {
                 db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = question.CharacterID });
             }
 
             ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
@@ -82,6 +92,22 @@ namespace StrangerThings.Controllers
 
         // GET: Questions/Edit/5
         public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Question question = db.Questions.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
+            return View(question);
+        }
+
+        // GET: Questions/EditAnswer/5
+        public ActionResult EditAnswer(int? id)
         {
             if (id == null)
             {
@@ -113,6 +139,20 @@ namespace StrangerThings.Controllers
             return View(question);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAnswer(int id, string answer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Questions.Find(id).Answer = answer;
+                db.SaveChanges();
+                return RedirectToAction("Index", new { id = db.Questions.Find(id).CharacterID });
+            }
+
+            return View(db.Questions.Find(id));
+        }
+
         // GET: Questions/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -136,7 +176,7 @@ namespace StrangerThings.Controllers
             Question question = db.Questions.Find(id);
             db.Questions.Remove(question);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = question.CharacterID });
         }
 
         protected override void Dispose(bool disposing)
