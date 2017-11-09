@@ -34,7 +34,7 @@
                     <div class="col-md-10">
                         <input type="hidden" value="@ViewBag.Character.CharacterID" name="CharacterID" />
                         <input type="hidden" value="1" name="UserID" />
-                        @Html.TextAreaFor(m => m.QuestionDescription, new { @class = "text-danger", rows="10", style = "border:1px solid #999999; width:100%; height: margin: 5px 0; padding: 3px; " })
+                        @Html.TextAreaFor(m => m.QuestionDescription, new { @class = "form-control", rows="10", style = "width:100%;" })
 
                     </div>
                 </div>

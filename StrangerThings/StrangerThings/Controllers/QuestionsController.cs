@@ -56,7 +56,7 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
-            return View(question);
+            return RedirectToAction("Index", new { id = question.CharacterID });
         }
 
         // GET: Questions/Create
@@ -105,7 +105,11 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
+
+            //Add the character to the viewbag and the character full name to the viewbag
+            ViewBag.Character = db.Characters.Find(question.CharacterID);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
+
             return View(question);
         }
 
@@ -134,13 +138,14 @@ namespace StrangerThings.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,UserID,CharacterID,QuestionDescription,Answer")] Question question)
+        public ActionResult Edit(Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(question).State = EntityState.Modified;
+                //db.Entry(question).State = EntityState.Modified;
+                db.Questions.Find(question.QuestionID).QuestionDescription = question.QuestionDescription;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = question.CharacterID });
             }
             ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
             return View(question);
@@ -172,6 +177,11 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
+
+            //Add the character to the viewbag and the character full name to the viewbag
+            ViewBag.Character = db.Characters.Find(question.CharacterID);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
+
             return View(question);
         }
 
