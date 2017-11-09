@@ -1,7 +1,18 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2><hr />
 
-<p>This is where we put nothing, because this page doesnt matter</p>
+<div class="row">
+    <div class="col-md-6" style="display: flex; align-items: center; min-height: 40vh;">
+        <img class="img img-responsive img-rounded" src="~/Content/img/about-img.jpg"/>
+    </div>
+    <div class="col-md-6" style="display: flex; align-items: center; min-height: 40vh;" >
+        <h4 style="line-height: 1.6">
+            Welcome to the Stranger Things Wiki!  We are a group of avid Stranger Things fans putting together a
+            community-driven site to answer your questions and enhance your knowledge.  You can find information
+            on all your favorite characters, as well as ask questions about things you don't know.  Please register
+            and share your excitement with the rest of our community!
+        </h4>
+    </div>
+</div>
