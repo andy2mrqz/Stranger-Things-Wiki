@@ -7,9 +7,10 @@
 <!--Breadcrumb-->
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb layout">
+        <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "redtext" })</li>
         <li class="breadcrumb-item">@Html.ActionLink("Characters", "Index", "Characters", null, new { @class = "redtext" })</li>
         <li class="breadcrumb-item">@Html.ActionLink((string)ViewBag.CharacterFullName, "Details", "Characters", new { id = ViewBag.Character.CharacterID }, new { @class = "redtext" })</li>
-        <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+        <li class="breadcrumb-item active" aria-current="page">FAQs</li>
     </ol>
 </nav>
 
