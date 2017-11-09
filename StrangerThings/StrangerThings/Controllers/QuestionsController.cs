@@ -68,7 +68,10 @@ namespace StrangerThings.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ViewBag.CharacterID = id;
+            //Find the character and add it to the viewbag
+            ViewBag.Character = db.Characters.Find(id);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
+
             return View();
         }
 
@@ -77,7 +80,7 @@ namespace StrangerThings.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,UserID,CharacterID,QuestionDescription,Answer")] Question question)
+        public ActionResult Create(Question question)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +121,11 @@ namespace StrangerThings.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "CharacterFirstName", question.CharacterID);
+
+            //Find the character and add it to the viewbag
+            ViewBag.Character = db.Characters.Find(question.CharacterID);
+            ViewBag.CharacterFullName = ViewBag.Character.CharacterFirstName + " " + ViewBag.Character.CharacterLastName;
+
             return View(question);
         }
 
