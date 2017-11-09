@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CharacterDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CharacterDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.CharacterDescription, new { @class = "form-control", rows = "10", style = "width:100%;" })
                 @Html.ValidationMessageFor(model => model.CharacterDescription, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -97,15 +97,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-red" />
+                @Html.ActionLink("Back to Characters", "Index", null, new { @class = "btn btn-red" })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
