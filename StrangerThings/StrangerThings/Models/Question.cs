@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace StrangerThings.Models
         public virtual Character Character { get; set; }
 
         //Other Attributes
+        [DisplayName("Question")]
         public string QuestionDescription { get; set; }
         public string Answer { get; set; }
     }

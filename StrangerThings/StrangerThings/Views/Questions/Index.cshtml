@@ -16,11 +16,11 @@
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-6">
         @*Display the character image*@
         <img class="img-responsive img-rounded" src="@ViewBag.Character.PhotoLocation" />
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-6">
         
         <div class="row">
             <div class="col-xs-6"><h2>@ViewBag.Character.CharacterFirstName @ViewBag.Character.CharacterLastName</h2></div>
@@ -32,8 +32,10 @@
             <p><b>Question:</b> @item.QuestionDescription</p>
             <p><b>Answer:</b> @item.Answer</p>
             <p>
-                @Html.ActionLink("Delete Question", "Delete", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) | 
-                @Html.ActionLink("Edit Answer", "EditAnswer", "Questions", new { id = item.QuestionID }, new { @class = "redtext" })
+                @Html.ActionLink("Answer", "EditAnswer", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) |
+                @Html.ActionLink("Edit", "Edit", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) |
+                @Html.ActionLink("Delete", "Delete", "Questions", new { id = item.QuestionID }, new { @class = "redtext" }) 
+ 
             </p>
         }
 
