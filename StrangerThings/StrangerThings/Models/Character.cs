@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -16,11 +17,16 @@ namespace StrangerThings.Models
         public int CharacterID { get; set; }
 
         //Declare the other attributes
+        [DisplayName("First Name")]
         public string CharacterFirstName { get; set; }
+        [DisplayName("Last Name")]
         public string CharacterLastName { get; set; }
+        [DisplayName("Description")]
         public string CharacterDescription { get; set; }
         public string Hometown { get; set; }
+        [DisplayName("Year of Birth")]
         public int YearOfBirth { get; set; }
+        [DisplayName("Photo Location")]
         public string PhotoLocation { get; set; }
         public string Actor { get; set; }
         public string Gender { get; set; }
