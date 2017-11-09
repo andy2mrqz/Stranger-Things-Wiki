@@ -221,6 +221,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomStyleSheet.css" />
+    <Content Include="Content\img\about-img.jpg" />
     <Content Include="Content\img\billy.jpg" />
     <Content Include="Content\img\chiefhopper.png" />
     <Content Include="Content\img\demogorgon.jpg" />

@@ -7,7 +7,7 @@
     var list = Model.ToList();
 }
 
-<h2 class="graytext">Characters</h2>
+<h2>Characters</h2>
 
 <!--Dropdown menu allows user to select a character without scrolling through the whole page-->
 
@@ -45,7 +45,7 @@
         <a href="@Url.Action("Details", "Characters", new { id = list[i].CharacterID })">
 
             <!--Show the first name and last name for the character-->
-            <h3 class="graytext">@Html.DisplayFor(modelItem => list[i].CharacterFirstName) @Html.DisplayFor(modelItem => list[i].CharacterLastName)</h3>
+            <h3>@Html.DisplayFor(modelItem => list[i].CharacterFirstName) @Html.DisplayFor(modelItem => list[i].CharacterLastName)</h3>
 
             <!--Display the character image-->
             <img class="img-responsive img-thumbnail" src="@Html.DisplayFor(modelItem => list[i].PhotoLocation)" />

@@ -1,57 +1,14 @@
-﻿.thumb {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-}
+﻿/* Global Styles */
 
 .layout {
     background-color: black;
-    color: white;
+    color: darkgray;
 }
 
-.graytext {
+h1, h2, h3, h4, p, a, label, address {
     color: darkgray;
     text-decoration: none;
     text-decoration-color: none;
-}
-
-.graytext:hover {
-    color: darkgray;
-    text-decoration: none;
-}
-
-.graytext:active {
-    color: darkgray;
-}
-
-.graytext:link {
-    color: darkgray;
-}
-
-.graytext:visited {
-    color: darkgray;
-}
-
-.redtext {
-     color:#EB272E;
-     text-decoration: none;
-}
-
-.redtext:active {
-     color: #EB272E;
-}
-
-.redtext:link {
-     color: #EB272E;
-}
-
-a.navbar-brand {
-    margin-top: -7px;
-}
-
-ol.breadcrumb.layout {
-    margin: 0;
-    padding: 15px;
 }
 
 .btn-red {
@@ -70,32 +27,30 @@ ol.breadcrumb.layout {
         border-color: #000000;
     }
 
-    .btn-red:active,
-    .btn-red.active,
-    .open .dropdown-toggle.btn-red {
-        background-image: none;
-    }
+/* Navbar Styles */
 
-    .btn-red.disabled,
-    .btn-red[disabled],
-    fieldset[disabled] .btn-red,
-    .btn-red.disabled:hover,
-    .btn-red[disabled]:hover,
-    fieldset[disabled] .btn-red:hover,
-    .btn-red.disabled:focus,
-    .btn-red[disabled]:focus,
-    fieldset[disabled] .btn-red:focus,
-    .btn-red.disabled:active,
-    .btn-red[disabled]:active,
-    fieldset[disabled] .btn-red:active,
-    .btn-red.disabled.active,
-    .btn-red[disabled].active,
-    fieldset[disabled] .btn-red.active {
-        background-color: #E00000;
-        border-color: #000000;
-    }
+.navbar-brand {
+    margin-top: -7px;
+}
 
-    .btn-red .badge {
-        color: #E00000;
-        background-color: #FFFFFF;
-    }
+/* Character Details Styles */
+
+.breadcrumb.layout {
+    margin: 0;
+    padding: 15px;
+}
+
+.redtext, .redtext:link {
+    color: #E00000;
+}
+
+.redtext:active, .redtext:hover {
+     color: #BB002D;
+     text-decoration: none;
+}
+
+/* Contact Page Styles */
+
+form {
+    color: black;
+}
