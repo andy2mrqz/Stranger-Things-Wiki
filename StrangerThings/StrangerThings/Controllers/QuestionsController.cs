@@ -17,6 +17,7 @@ namespace StrangerThings.Controllers
 
         // GET: Questions
         //Passing in an id so the index will only show question related with the character.
+        [Authorize]
         public ActionResult Index(int? id)
         {
             //If no ID is passed, a bad request page is shown
